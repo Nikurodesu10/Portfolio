@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Joannah Nicole T. Hofilena - Front-End Developer and UI/UX Designer"/>
+<title>Joannah Nicole Hofilena Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --serif:'DM Serif Display',serif;
+  --sans:'DM Sans',sans-serif;
+  --ink:#1a1a18;--ink2:#4a4a46;--ink3:#8a8a84;
+  --bg:#fafaf8;--bg2:#f2f2ee;--bg3:#e8e8e2;
+  --line:rgba(0,0,0,0.08);--line2:rgba(0,0,0,0.15);
+  --accent:#2a6a4a;--accentL:#e8f3ed;
+  --rsm:6px;--rmd:10px;--rlg:16px;
+  --s1:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04);
+  --s2:0 4px 16px rgba(0,0,0,0.08),0 2px 6px rgba(0,0,0,0.04);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+button{font-family:var(--sans)}
+::selection{background:var(--accentL);color:var(--accent)}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:99px}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(42,106,74,.25)}50%{box-shadow:0 0 0 6px rgba(42,106,74,.1)}}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+@keyframes fadein{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:all .3s ease}
+nav.scrolled{background:rgba(250,250,248,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:780px;margin:0 auto;padding:0 1.5rem;height:64px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--serif);font-size:18px;letter-spacing:-.3px}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2rem}
+.nav-links button{background:none;border:none;cursor:pointer;font-size:13px;color:var(--ink2);font-weight:400;transition:color .15s;padding:4px 0}
+.nav-links button:hover{color:var(--ink)}
+.nav-hire{font-size:13px;font-weight:500;padding:8px 18px;background:var(--ink);color:var(--bg);border-radius:var(--rsm);transition:opacity .15s;display:inline-block}
+.nav-hire:hover{opacity:.8}
+.wrap{max-width:780px;margin:0 auto;padding:0 1.5rem}
+.label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.label::before{content:'';display:block;width:24px;height:1px;background:var(--accent)}
+.tag{font-size:11px;padding:3px 10px;border-radius:99px;background:var(--bg2);color:var(--ink2);border:1px solid var(--line)}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;padding:100px 1.5rem 60px;max-width:780px;margin:0 auto}
+.hero-inner{width:100%;animation:fadein .8s ease both}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--accentL);color:var(--accent);border-radius:99px;padding:5px 14px;font-size:12px;font-weight:500;margin-bottom:1.75rem;border:1px solid rgba(42,106,74,.2)}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-in-out infinite}
+.hero-name{font-family:var(--serif);font-size:clamp(40px,8vw,66px);line-height:1.05;letter-spacing:-1.5px;margin-bottom:1rem}
+.hero-name em{font-style:italic;color:var(--ink2)}
+.role-line{font-size:clamp(15px,2.5vw,21px);font-weight:300;color:var(--ink2);margin-bottom:1.5rem;min-height:34px;display:flex;align-items:center;gap:10px}
+.role-text{color:var(--accent);font-weight:500;transition:all .35s ease}
+.hero-bio{font-size:15px;line-height:1.85;color:var(--ink2);max-width:540px;margin-bottom:2.5rem}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:3rem}
+.btn-dark{background:var(--ink);color:var(--bg);border:none;border-radius:var(--rsm);padding:12px 24px;font-size:14px;font-weight:500;cursor:pointer;transition:opacity .15s}
+.btn-dark:hover{opacity:.8}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--line2);border-radius:var(--rsm);padding:12px 24px;font-size:14px;font-weight:500;transition:background .15s;display:inline-block}
+.btn-outline:hover{background:var(--bg2)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-size:12px;padding:4px 12px;border-radius:99px;background:var(--bg2);color:var(--ink2);border:1px solid var(--line)}
+.scroll-hint{margin-top:4rem;display:flex;align-items:center;gap:10px;color:var(--ink3);font-size:12px}
+.scroll-hint span{animation:bounce 2s ease-in-out infinite}
+/* ABOUT */
+#about{padding:6rem 1.5rem;max-width:780px;margin:0 auto}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.about-h{font-family:var(--serif);font-size:34px;line-height:1.15;letter-spacing:-.5px;margin-bottom:1.5rem}
+.about-h em{font-style:italic;color:var(--ink2)}
+.about-p{font-size:15px;line-height:1.85;color:var(--ink2);margin-bottom:1rem}
+.edu-card{background:var(--bg2);border-radius:var(--rmd);padding:1rem 1.25rem;border-left:3px solid var(--accent)}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--rmd);padding:1.25rem;box-shadow:var(--s1)}
+.stat-num{font-family:var(--serif);font-size:34px;letter-spacing:-1px;line-height:1;margin-bottom:6px}
+.stat-lbl{font-size:12px;color:var(--ink3);line-height:1.5}
+/* EXPERIENCE */
+#experience{padding:6rem 1.5rem;background:var(--bg2)}
+.exp-grid{display:grid;grid-template-columns:250px 1fr;gap:2rem}
+.exp-list{display:flex;flex-direction:column;gap:4px}
+.exp-btn{text-align:left;border-radius:var(--rmd);padding:12px 14px;cursor:pointer;transition:all .15s;border:1px solid transparent;background:transparent}
+.exp-btn.active{background:var(--bg);border-color:var(--line);box-shadow:var(--s1)}
+.exp-btn-role{font-size:13px;margin-bottom:2px;color:var(--ink2)}
+.exp-btn.active .exp-btn-role{font-weight:500;color:var(--ink)}
+.exp-btn-org{font-size:11px;color:var(--ink3)}
+.exp-detail{background:var(--bg);border:1px solid var(--line);border-radius:var(--rlg);padding:2rem;box-shadow:var(--s1)}
+.exp-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem}
+.exp-date{font-size:11px;color:var(--ink3);margin-bottom:4px}
+.exp-role{font-size:20px;font-family:var(--serif);font-weight:400;margin-bottom:4px}
+.exp-org{font-size:14px;color:var(--ink2)}
+.type-badge{font-size:11px;font-weight:500;padding:4px 10px;border-radius:99px;white-space:nowrap}
+.exp-desc{font-size:14px;line-height:1.8;color:var(--ink2);margin:1rem 0 1.5rem}
+/* PROJECTS */
+#projects{padding:6rem 1.5rem;max-width:780px;margin:0 auto}
+.proj-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--rlg);padding:2rem;box-shadow:var(--s1);transition:all .2s ease;margin-bottom:20px;position:relative;overflow:hidden}
+.proj-card:hover{border-color:var(--line2);box-shadow:var(--s2);transform:translateY(-2px)}
+.proj-inner{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.proj-icon{width:44px;height:44px;border-radius:var(--rmd);background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:1rem}
+.proj-title{font-size:18px;font-family:var(--serif);font-weight:400}
+.proj-sub{font-size:12px;color:var(--ink3);margin-bottom:1rem}
+.proj-desc{font-size:14px;line-height:1.8;color:var(--ink2);margin-bottom:1.25rem}
+.featured-badge{position:absolute;top:20px;right:20px;font-size:11px;font-weight:500;padding:4px 10px;border-radius:99px;background:var(--accentL);color:var(--accent);border:1px solid rgba(42,106,74,.2)}
+.info-box{background:var(--bg2);border-radius:var(--rmd);padding:1rem 1.25rem;margin-bottom:16px}
+.info-lbl{font-size:11px;color:var(--ink3);margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em;font-weight:500}
+.impact-box{background:var(--accentL);border-radius:var(--rmd);padding:1rem 1.25rem;border-left:3px solid var(--accent)}
+.impact-lbl{font-size:11px;color:var(--accent);margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em;font-weight:500}
+/* SKILLS */
+#skills{padding:6rem 1.5rem;background:var(--bg2)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-bottom:16px}
+.skill-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--rlg);padding:1.5rem;box-shadow:var(--s1);transition:box-shadow .2s}
+.skill-card:hover{box-shadow:var(--s2)}
+.skill-icon{font-size:24px;margin-bottom:.75rem}
+.skill-name{font-size:13px;font-weight:500;margin-bottom:.75rem}
+.skill-bar{height:3px;background:var(--bg3);border-radius:99px;margin-bottom:1rem;overflow:hidden}
+.skill-fill{height:100%;background:var(--accent);border-radius:99px}
+.skill-item{font-size:12px;color:var(--ink2);line-height:1.6}
+.soft-bar{background:var(--bg);border:1px solid var(--line);border-radius:var(--rlg);padding:1.5rem 2rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+.soft-lbl{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--ink3);white-space:nowrap}
+.soft-item{font-size:13px;color:var(--ink2);display:flex;align-items:center;gap:6px}
+.soft-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);display:inline-block}
+/* BLOG */
+#blog{padding:6rem 1.5rem;max-width:780px;margin:0 auto}
+.event-card{display:grid;grid-template-columns:1fr auto;background:var(--bg);border:1px solid var(--line);border-radius:var(--rlg);padding:1.5rem 1.75rem;box-shadow:var(--s1);gap:1rem;align-items:center;transition:all .2s;margin-bottom:16px}
+.event-card:hover{border-color:var(--line2);box-shadow:var(--s2)}
+.event-top{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap}
+.event-title{font-size:15px;font-weight:500}
+.event-tag{font-size:10px;font-weight:500;padding:2px 8px;border-radius:99px}
+.event-desc{font-size:13px;color:var(--ink2);line-height:1.7}
+.event-meta{font-size:11px;color:var(--ink3);margin-top:8px}
+/* CONTACT */
+#contact{padding:6rem 1.5rem;background:var(--ink)}
+.contact-title{font-family:var(--serif);font-size:clamp(34px,7vw,58px);color:#fff;line-height:1.1;letter-spacing:-1px;margin-bottom:1.5rem}
+.contact-title em{font-style:italic;color:rgba(255,255,255,.5)}
+.contact-bio{font-size:15px;color:rgba(255,255,255,.6);max-width:480px;margin:0 auto 2.5rem;line-height:1.8}
+.contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:4rem}
+.contact-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--rlg);padding:1.5rem}
+.contact-icon{font-size:20px;margin-bottom:12px}
+.contact-lbl{font-size:11px;color:rgba(255,255,255,.45);margin-bottom:4px;text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+.contact-val{font-size:13px;color:rgba(255,255,255,.85);line-height:1.6}
+.copy-btn{margin-top:12px;font-size:11px;padding:4px 12px;border-radius:99px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.15);cursor:pointer;font-family:var(--sans)}
+.refs-section{border-top:1px solid rgba(255,255,255,.1);padding-top:2.5rem}
+.refs-title{font-size:11px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.1em;font-weight:500;margin-bottom:1.5rem}
+.refs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ref-name{font-size:13px;font-weight:500;color:rgba(255,255,255,.85);margin-bottom:2px}
+.ref-title{font-size:12px;color:rgba(255,255,255,.5);margin-bottom:2px}
+.ref-org{font-size:11px;color:rgba(255,255,255,.35);margin-bottom:4px}
+.ref-contact{font-size:11px;color:rgba(255,255,255,.45)}
+.footer{border-top:1px solid rgba(255,255,255,.08);margin-top:3rem;padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer p{font-size:12px;color:rgba(255,255,255,.3)}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .about-grid,.exp-grid,.proj-inner,.contact-cards,.refs-grid,.stats-grid{grid-template-columns:1fr!important}
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+const ROLES = ['Front-End Developer','UI/UX Designer','React Developer','Web Developer'];
+
+const EXP = [
+  {date:'Dec 2025 - Present',role:'Project Manager',org:'IReply Back Office Inc.',type:'work',
+   desc:'Leading project workflows and coordinating team operations, ensuring timely and quality delivery of client projects.',
+   tags:['Project Management','Team Leadership','Client Relations']},
+  {date:'Jan 2025 - Present',role:'4th Year Batch Deputy',org:'USLS CCS Student Council',type:'leadership',
+   desc:'Representing the 4th year batch in the CCS Student Council. Organizing events and advocating for student interests.',
+   tags:['Leadership','Event Management','Student Advocacy']},
+  {date:'2024 - 2025',role:'3rd Year Batch Treasurer',org:'USLS CCS Student Council',type:'leadership',
+   desc:'Managed all financial records and budgeting for batch-level student council activities with transparent reporting.',
+   tags:['Financial Management','Budgeting','Reporting']},
+  {date:'2024 - 2025',role:'Member',org:'Information Technology Society USLS',type:'leadership',
+   desc:'Active member contributing to IT-related events, workshops, and community-building activities within the university.',
+   tags:['Community','IT Events']},
+  {date:'2022 - Present',role:'BS Information Technology',org:'University of St. La Salle',type:'education',
+   desc:'Studying web development, systems analysis, database management, and UI/UX design with active academic involvement.',
+   tags:['Web Dev','Systems Analysis','Database','UI/UX']},
+  {date:'2020 - 2022',role:'Senior High - STEM Strand',org:'University of Saint La Salle - Bacolod',type:'education',
+   desc:'Completed STEM strand with Academic Achievement recognition, building a strong foundation in science and technology.',
+   tags:['STEM','Academic Achievement']},
+];
+
+const TYPE_STYLE = {
+  work:{bg:'#e8f3ed',color:'#2a6a4a',label:'Work'},
+  leadership:{bg:'#eef2ff',color:'#4f46e5',label:'Leadership'},
+  education:{bg:'#fef3e2',color:'#c07020',label:'Education'},
+};
+
+const PROJECTS = [
+  {emoji:'🌾',title:'FarmTracker',sub:'AI-Based Scheduler for Farming',featured:true,
+   role:'Full-Stack Developer and Designer',
+   impact:'Digitized farm operations replacing manual logs with an intelligent AI-driven scheduling system.',
+   tags:['React.js','Flutter','PHP','GPT API','Gemini API','QR System'],
+   desc:'A dual-platform system with a Flutter mobile app for farmers and a React.js/PHP web dashboard. Uses GPT/Gemini APIs for automated task scheduling, AI-powered crop analysis, and QR codes for harvest tracking.'},
+  {emoji:'🏢',title:'HRIS - IReply Back Office',sub:'HR Information System',featured:false,
+   role:'Front-End Developer',
+   impact:'Streamlined HR operations with a centralized easy-to-use management dashboard.',
+   tags:['ReactJS','PHP','MySQL'],
+   desc:'Web-based HR information system for timekeeping, attendance tracking, team management, and employee records with a clean admin dashboard.'},
+];
+
+const SKILLS = [
+  {icon:'💻',name:'Development',level:90,items:['HTML','CSS','JavaScript','React.js','PHP','API Integration']},
+  {icon:'🎨',name:'UI/UX Design',level:85,items:['Figma','Wireframing','Prototyping','User Research']},
+  {icon:'🗄️',name:'Database',level:78,items:['MySQL','ERD Design','PHP Backend','Query Optimization']},
+  {icon:'🚀',name:'Deployment',level:80,items:['HelioHost','GoDaddy','Vercel','Hosting Setup']},
+  {icon:'📊',name:'Systems',level:82,items:['Flowcharts','Process Mapping','System Design','Documentation']},
+  {icon:'✏️',name:'Design Tools',level:88,items:['Canva','Adobe Photoshop','Written Communication','Reports']},
+];
+
+const EVENTS = [
+  {title:'GDG DevFest Bacolod 2025',org:'University of St. La Salle',date:'November 2025',
+   desc:'Attended Google Developer Group DevFest exploring the latest in web, mobile, and AI development.',
+   tag:'Tech Conference',tagBg:'#e8f3ed',tagColor:'#2a6a4a'},
+  {title:'TechTrack: Mapping Your Future Tech',org:'University of St. La Salle',date:'November 2025',
+   desc:'Career guidance seminar on navigating tech career pathways and emerging opportunities in the industry.',
+   tag:'Career Development',tagBg:'#eef2ff',tagColor:'#4f46e5'},
+  {title:'Cybersecurity for National Security',org:'University of St. La Salle',date:'August 2025',
+   desc:'Seminar exploring the role of cybersecurity in protecting national infrastructure and digital governance.',
+   tag:'Cybersecurity',tagBg:'#fef3e2',tagColor:'#c07020'},
+  {title:'CS Expo 3.0 Pitching Competition',org:'University of St. La Salle',date:'April 2025',
+   desc:'Participated in the college annual computing expo, presenting and pitching innovative tech projects.',
+   tag:'Competition',tagBg:'#fce7f3',tagColor:'#be185d'},
+];
+
+const REFS = [
+  {name:'Jona P. Castro',title:'Assistant Principal',org:'Don Bosco Technical Institute - Victorias',contact:'+63946 969 0310'},
+  {name:'Dave Marcellana',title:'Software QA Engineer',org:'IReply Back Office Inc.',contact:'+63991 893 8183'},
+  {name:'Ma. Celsa G. P. Pascual',title:'IT Faculty Member',org:'University of St. La Salle',contact:'c.pascual@usls.edu.ph'},
+];
+
+function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', fn);
+    return () => window.removeEventListener('scroll', fn);
+  }, []);
+  const go = id => document.getElementById(id) && document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  return (
+    <nav className={scrolled ? 'scrolled' : ''}>
+      <div className="nav-inner">
+        <span className="nav-logo">JN<span>.</span></span>
+        <div className="nav-links">
+          {['about','experience','projects','skills','blog','contact'].map(s => (
+            <button key={s} onClick={() => go(s)}>{s.charAt(0).toUpperCase()+s.slice(1)}</button>
+          ))}
+        </div>
+        <a className="nav-hire" href="mailto:hofilenanicole1@gmail.com">Hire me</a>
+      </div>
+    </nav>
+  );
+}
+
+function Hero() {
+  const [idx, setIdx] = useState(0);
+  const [vis, setVis] = useState(true);
+  useEffect(() => {
+    const t = setInterval(() => {
+      setVis(false);
+      setTimeout(() => { setIdx(i => (i + 1) % ROLES.length); setVis(true); }, 400);
+    }, 2800);
+    return () => clearInterval(t);
+  }, []);
+  return (
+    <section id="hero">
+      <div className="hero-inner">
+        <div className="badge">
+          <span className="badge-dot"></span>
+          Available for opportunities
+        </div>
+        <h1 className="hero-name">
+          Joannah Nicole<br/>
+          <em>T. Hofilena</em>
+        </h1>
+        <div className="role-line">
+          <span className="role-text" style={{opacity: vis ? 1 : 0, transform: vis ? 'translateY(0)' : 'translateY(-8px)'}}>
+            {ROLES[idx]}
+          </span>
+          <span style={{color:'var(--line2)'}}>· Philippines</span>
+        </div>
+        <p className="hero-bio">
+          I build responsive, user-centered web applications with a sharp eye for clean interface design.
+          Bridging design thinking and technical execution — from Figma wireframes to production React apps —
+          with experience in PHP, MySQL, and full deployment workflows.
+        </p>
+        <div className="btn-row">
+          <button className="btn-dark" onClick={() => go('projects')}>View my work →</button>
+          <a className="btn-outline" href="mailto:hofilenanicole1@gmail.com">Get in touch</a>
+        </div>
+        <div className="chips">
+          {['HTML','CSS','JavaScript','React.js','PHP','MySQL','Figma','UI/UX'].map(t => (
+            <span key={t} className="chip">{t}</span>
+          ))}
+        </div>
+        <div className="scroll-hint"><span>↓</span> Scroll to explore</div>
+      </div>
+    </section>
+  );
+}
+
+function About() {
+  return (
+    <section id="about">
+      <div className="wrap">
+        <p className="label">About me</p>
+        <div className="about-grid">
+          <div>
+            <h2 className="about-h">Designing with purpose,<br/><em>building with precision.</em></h2>
+            <p className="about-p">I am a Front-End Developer and UI/UX Designer from Victorias City, Philippines, passionate about crafting interfaces that feel as good as they look.</p>
+            <p className="about-p">Beyond building, I am an active student leader serving as 4th Year Batch Deputy at the USLS CCS Student Council, and currently working as Project Manager at IReply Back Office Inc.</p>
+            <div className="edu-card">
+              <p style={{fontSize:12,color:'var(--accent)',fontWeight:500,marginBottom:4}}>Currently studying</p>
+              <p style={{fontSize:14,fontWeight:500}}>BS Information Technology</p>
+              <p style={{fontSize:13,color:'var(--ink2)'}}>University of St. La Salle · 2022 - Present</p>
+            </div>
+          </div>
+          <div className="stats-grid">
+            {[{num:'2+',lbl:'Years of hands-on experience'},{num:'2',lbl:'Full-stack projects shipped'},{num:'4th',lbl:'Year BSIT student, USLS'},{num:'5+',lbl:'Seminars and tech events attended'}].map(s => (
+              <div key={s.num} className="stat-card">
+                <p className="stat-num">{s.num}</p>
+                <p className="stat-lbl">{s.lbl}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Experience() {
+  const [active, setActive] = useState(0);
+  const e = EXP[active];
+  const ts = TYPE_STYLE[e.type];
+  return (
+    <section id="experience">
+      <div className="wrap">
+        <p className="label">Experience and Education</p>
+        <h2 style={{fontFamily:'var(--serif)',fontSize:34,letterSpacing:'-.5px',marginBottom:'3rem',lineHeight:1.2}}>The journey so far</h2>
+        <div className="exp-grid">
+          <div className="exp-list">
+            {EXP.map((ex, i) => (
+              <button key={i} className={'exp-btn' + (active === i ? ' active' : '')} onClick={() => setActive(i)}>
+                <p className="exp-btn-role">{ex.role}</p>
+                <p className="exp-btn-org">{ex.org}</p>
+              </button>
+            ))}
+          </div>
+          <div className="exp-detail">
+            <div className="exp-top">
+              <div>
+                <p className="exp-date">{e.date}</p>
+                <h3 className="exp-role">{e.role}</h3>
+                <p className="exp-org">{e.org}</p>
+              </div>
+              <span className="type-badge" style={{background:ts.bg,color:ts.color}}>{ts.label}</span>
+            </div>
+            <p className="exp-desc">{e.desc}</p>
+            <div className="tags">{e.tags.map(t => <span key={t} className="tag">{t}</span>)}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Projects() {
+  const go = id => document.getElementById(id) && document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  return (
+    <section id="projects">
+      <div className="wrap">
+        <p className="label">Projects</p>
+        <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-end',marginBottom:'3rem'}}>
+          <h2 style={{fontFamily:'var(--serif)',fontSize:34,letterSpacing:'-.5px',lineHeight:1.2}}>
+            Things I built<br/><em style={{fontStyle:'italic',color:'var(--ink2)'}}>and shipped</em>
+          </h2>
+          <p style={{fontSize:13,color:'var(--ink3)',maxWidth:200,textAlign:'right',lineHeight:1.6}}>Real projects solving real problems</p>
+        </div>
+        {PROJECTS.map((p, i) => (
+          <div key={i} className="proj-card">
+            {p.featured && <span className="featured-badge">Featured</span>}
+            <div className="proj-inner">
+              <div>
+                <div className="proj-icon">{p.emoji}</div>
+                <h3 className="proj-title">{p.title}</h3>
+                <p className="proj-sub">{p.sub}</p>
+                <p className="proj-desc">{p.desc}</p>
+                <div className="tags">{p.tags.map(t => <span key={t} className="tag">{t}</span>)}</div>
+              </div>
+              <div>
+                <div className="info-box">
+                  <p className="info-lbl">My role</p>
+                  <p style={{fontSize:13,fontWeight:500}}>{p.role}</p>
+                </div>
+                <div className="impact-box">
+                  <p className="impact-lbl">Impact</p>
+                  <p style={{fontSize:13,lineHeight:1.6,color:'var(--ink2)'}}>{p.impact}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Skills() {
+  return (
+    <section id="skills">
+      <div className="wrap">
+        <p className="label">Skills</p>
+        <h2 style={{fontFamily:'var(--serif)',fontSize:34,letterSpacing:'-.5px',marginBottom:'3rem'}}>What I work with</h2>
+        <div className="skills-grid">
+          {SKILLS.map(g => (
+            <div key={g.name} className="skill-card">
+              <div className="skill-icon">{g.icon}</div>
+              <p className="skill-name">{g.name}</p>
+              <div className="skill-bar"><div className="skill-fill" style={{width:g.level+'%'}}></div></div>
+              {g.items.map(s => <p key={s} className="skill-item">· {s}</p>)}
+            </div>
+          ))}
+        </div>
+        <div className="soft-bar">
+          <p className="soft-lbl">Soft skills</p>
+          {['Team Collaboration','Research and Data Gathering','Written Communication','Adaptability','Problem Solving'].map(s => (
+            <span key={s} className="soft-item"><span className="soft-dot"></span>{s}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Blog() {
+  return (
+    <section id="blog">
+      <div className="wrap">
+        <p className="label">Seminars and Events</p>
+        <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-end',marginBottom:'3rem'}}>
+          <h2 style={{fontFamily:'var(--serif)',fontSize:34,letterSpacing:'-.5px',lineHeight:1.2}}>
+            Learning and<br/><em style={{fontStyle:'italic',color:'var(--ink2)'}}>growing</em>
+          </h2>
+          <p style={{fontSize:13,color:'var(--ink3)',maxWidth:200,textAlign:'right',lineHeight:1.6}}>Conferences, workshops and events</p>
+        </div>
+        {EVENTS.map((e, i) => (
+          <div key={i} className="event-card">
+            <div>
+              <div className="event-top">
+                <span className="event-title">{e.title}</span>
+                <span className="event-tag" style={{background:e.tagBg,color:e.tagColor}}>{e.tag}</span>
+              </div>
+              <p className="event-desc">{e.desc}</p>
+              <p className="event-meta">{e.org} · {e.date}</p>
+            </div>
+            <span style={{fontSize:18,color:'var(--ink3)'}}>↗</span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Contact() {
+  const [copied, setCopied] = useState(false);
+  const copy = () => {
+    navigator.clipboard.writeText('hofilenanicole1@gmail.com');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+  return (
+    <section id="contact">
+      <div className="wrap">
+        <div style={{textAlign:'center',marginBottom:'4rem'}}>
+          <p style={{fontSize:11,fontWeight:500,letterSpacing:'.1em',textTransform:'uppercase',color:'rgba(255,255,255,.4)',marginBottom:'1.5rem'}}>Get in touch</p>
+          <h2 className="contact-title">
+            Let us build something<br/><em>great together</em>
+          </h2>
+          <p className="contact-bio">I am open to front-end development roles, UI/UX design opportunities, and collaborative project work. Let us make something meaningful.</p>
+          <a href="mailto:hofilenanicole1@gmail.com" style={{display:'inline-block',background:'#fff',color:'var(--ink)',borderRadius:'var(--rsm)',padding:'14px 32px',fontSize:14,fontWeight:500,transition:'opacity .15s'}}
+            onMouseEnter={e => e.currentTarget.style.opacity='.85'}
+            onMouseLeave={e => e.currentTarget.style.opacity='1'}
+          >Send me an email →</a>
+        </div>
+        <div className="contact-cards">
+          <div className="contact-card">
+            <p className="contact-icon">✉</p>
+            <p className="contact-lbl">Email</p>
+            <p className="contact-val">hofilenanicole1@gmail.com</p>
+            <button className="copy-btn" onClick={copy}>{copied ? 'Copied!' : 'Copy'}</button>
+          </div>
+          <div className="contact-card">
+            <p className="contact-icon">📱</p>
+            <p className="contact-lbl">Mobile</p>
+            <p className="contact-val">+63 999 867 2197</p>
+          </div>
+          <div className="contact-card">
+            <p className="contact-icon">📍</p>
+            <p className="contact-lbl">Location</p>
+            <p className="contact-val">Victorias City, Negros Occidental, PH</p>
+          </div>
+        </div>
+        <div className="refs-section">
+          <p className="refs-title">Character References</p>
+          <div className="refs-grid">
+            {REFS.map((r, i) => (
+              <div key={i}>
+                <p className="ref-name">{r.name}</p>
+                <p className="ref-title">{r.title}</p>
+                <p className="ref-org">{r.org}</p>
+                <p className="ref-contact">{r.contact}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="footer">
+          <p>2025 Joannah Nicole T. Hofilena. All rights reserved.</p>
+          <p>Front-End Developer and UI/UX Designer · Philippines</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function go(id) {
+  var el = document.getElementById(id);
+  if (el) el.scrollIntoView({behavior:'smooth'});
+}
+
+function App() {
+  return (
+    <div>
+      <Navbar/>
+      <main>
+        <Hero/>
+        <About/>
+        <Experience/>
+        <Projects/>
+        <Skills/>
+        <Blog/>
+        <Contact/>
+      </main>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>
