@@ -1,6 +1,5 @@
 /* =============================================
    Joannah Nicole Hofileña — Portfolio Styles
-   Author: Joannah Nicole Hofileña
 ============================================= */
 
 :root{
@@ -162,6 +161,8 @@
   .project-card:hover{border-color:var(--signal); transform:translateY(-3px);}
   .project-card .corner-mark{position:absolute; top:14px; right:14px; font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--signal); opacity:0; transition:opacity .3s ease;}
   .project-card:hover .corner-mark{opacity:1;}
+  .pc-img{width:100%; aspect-ratio:16/9; object-fit:cover; display:block; border:1px solid var(--line-soft); margin-bottom:20px; background:var(--ink-2);}
+  .pc-img-placeholder{width:100%; aspect-ratio:16/9; background:var(--ink-2); border:1px solid var(--line-soft); display:flex; align-items:center; justify-content:center; margin-bottom:20px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--sage); letter-spacing:.04em;}
   .pc-top{display:flex; align-items:center; gap:10px; margin-bottom:18px;}
   .pc-code{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--signal);}
   .pc-rule{flex:1; height:1px; background:var(--line-soft);}
