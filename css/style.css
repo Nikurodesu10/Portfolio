@@ -1,7 +1,6 @@
 /* =============================================
    Joannah Nicole Hofileña — Portfolio Styles
    Author: Joannah Nicole Hofileña
-   Description: Main stylesheet for portfolio
 ============================================= */
 
 :root{
@@ -147,7 +146,7 @@
   .hero-top-row{display:flex; justify-content:space-between; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--sage); margin-bottom:36px; flex-wrap:wrap; gap:8px;}
   .hero-status{color:var(--signal);}
   h1.hero-title{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:3.4rem; line-height:1.05; color:var(--paper); margin:14px 0 22px;}
-  h1.hero-title .sub{color:var(--sage);}
+  h1.hero-title .sub{color:var(--paper);}
   .hero-desc{max-width:560px; font-size:1.08rem; line-height:1.7; color:rgba(244,242,236,0.75); margin-bottom:34px;}
   .hero-tags{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:36px;}
   .hero-ctas{display:flex; flex-wrap:wrap; gap:14px;}
