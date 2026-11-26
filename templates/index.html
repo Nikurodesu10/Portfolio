@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Joannah Nicole Hofileña — Front-End Developer & UI/UX Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="grain"></div>
+
+<nav>
+  <div class="wrap nav-inner">
+    <button class="logo" onclick="scrollToId('top')">JNH<span>.</span></button>
+    <div class="nav-links">
+      <button class="nav-link" onclick="scrollToId('work')">WORK</button>
+      <button class="nav-link" onclick="scrollToId('about')">ABOUT</button>
+      <button class="nav-link" onclick="scrollToId('skills')">SKILLS</button>
+      <button class="nav-link" onclick="scrollToId('experience')">EXPERIENCE</button>
+      <button class="nav-link" onclick="scrollToId('contact')">CONTACT</button>
+    </div>
+    <a class="nav-cta" href="https://www.linkedin.com/in/joannah-nicole-hofileña-4334473b1" target="_blank" rel="noopener">Get in touch</a>
+  </div>
+</nav>
+
+<section id="top" class="hero grid-bg">
+  <div class="wrap">
+    <div class="hero-frame frame reveal">
+      <div class="bracket tl"></div><div class="bracket tr"></div><div class="bracket bl"></div><div class="bracket br"></div>
+      <div class="hero-top-row hero-line" style="justify-content:flex-end;">
+        <span class="hero-status"><span class="hero-status-dot"></span>OPEN TO OPPORTUNITIES</span>
+      </div>
+      <div class="hero-body">
+        <div>
+          <h1 class="hero-title hero-line">Joannah Nicole T.<br><span class="sub">Hofileña</span></h1>
+          <p class="hero-desc hero-line">Detail-oriented IT graduate with hands-on experience in web development and project coordination. A proven team leader who handled records, finances, and events — now ready to bring the same focus and dedication to a career in IT or web development.</p>
+          <p class="hero-line" style="font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:.06em; color:var(--signal); margin-bottom:30px; animation-delay:.7s;">Junior Web Developer &amp; Data Entry Specialist</p>
+          <div class="hero-ctas hero-line">
+            <a href="#work" class="btn btn-fill" onclick="event.preventDefault(); scrollToId('work')">View Projects →</a>
+            <a href="#contact" class="btn btn-outline" onclick="event.preventDefault(); scrollToId('contact')">Contact Me</a>
+            <a href="{{ url_for('static', filename='files/Hofilena_Joannah_Nicole_Resume.pdf') }}" class="btn btn-outline" download="Hofilena_Joannah_Nicole_Resume.pdf">Resume ↓</a>
+          </div>
+        </div>
+        <div class="hero-photo-wrap hero-line">
+          <div class="bracket tl"></div><div class="bracket tr"></div><div class="bracket bl"></div><div class="bracket br"></div>
+          <img class="hero-photo" src="{{ url_for('static', filename='images/grad.jpeg') }}" alt="Joannah Nicole Hofileña" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="section proj-section">
+  <div class="wrap">
+    <div class="section-head sr">
+      <div>
+        <p class="dim-label">PROJECTS</p>
+        <h2 class="section-title">Featured Projects</h2>
+      </div>
+    </div>
+
+      <div class="proj-featured sr">
+        <span class="proj-featured-badge">★ FEATURED</span>
+        <img class="proj-featured-img" src="{{ url_for('static', filename='images/hris.png') }}" alt="HRIS">
+        <div class="proj-featured-body">
+          <div class="proj-featured-tags"><span class="proj-tag">Web App</span><span class="proj-tag">Full Stack</span><span class="proj-tag">PHP</span></div>
+          <div class="proj-featured-title">HRIS</div>
+          <div class="proj-featured-role">↳ Team Leader · iReply Back Office Inc.</div>
+          <p class="proj-featured-desc">A web-based HR information system handling timekeeping, attendance, team management, and employee records built to replace manual tracking with a single source of truth for an active back-office team.</p>
+          <button class="proj-view-btn" onclick="openModal('hris')">⊹ View Project Details</button>
+          <div class="proj-detail-box">
+            <div class="proj-detail-label">📍 Problem Solved</div>
+            <div class="proj-detail-text">Manual attendance and HR records caused errors, delays, and difficulty in tracking employee data across departments.</div>
+          </div>
+        </div>
+      </div>
+        <div class="proj-grid">
+
+      <div class="proj-card sr" onclick="openModal('farmtracker')" style="cursor:pointer;">
+        <img class="proj-card-img" src="{{ url_for('static', filename='images/farmtracker-1.jpg') }}" alt="FarmTracker">
+        <div class="proj-card-body">
+          <div class="proj-card-tags"><span class="proj-tag">Mobile App</span><span class="proj-tag">Flutter</span><span class="proj-tag">AI</span></div>
+          <div class="proj-card-title">FarmTracker</div>
+          <div class="proj-card-role">↳ Research & Documentation</div>
+        </div>
+        <span class="proj-card-view">view →</span>
+      </div>
+
+      <div class="proj-card sr" onclick="openModal('coastal')" style="cursor:pointer;">
+        <img class="proj-card-img" src="{{ url_for('static', filename='images/coastal-care.png') }}" alt="Coastal Care">
+        <div class="proj-card-body">
+          <div class="proj-card-tags"><span class="proj-tag">Web App</span><span class="proj-tag">Frontend</span><span class="proj-tag">PHP</span></div>
+          <div class="proj-card-title">Coastal Care</div>
+          <div class="proj-card-role">↳ Full-Stack Developer</div>
+        </div>
+        <span class="proj-card-view">view →</span>
+      </div>
+
+      <div class="proj-card sr" onclick="openModal('usls')" style="cursor:pointer;">
+        <img class="proj-card-img" src="{{ url_for('static', filename='images/usls-bookstore.png') }}" alt="USLS Bookstore">
+        <div class="proj-card-body">
+          <div class="proj-card-tags"><span class="proj-tag">Web App</span><span class="proj-tag">Full Stack</span><span class="proj-tag">MySQL</span></div>
+          <div class="proj-card-title">USLS Bookstore</div>
+          <div class="proj-card-role">↳ Full-Stack Developer</div>
+        </div>
+        <span class="proj-card-view">view →</span>
+      </div>
+
+      <div class="proj-card sr" onclick="openModal('agrofin')" style="cursor:pointer;">
+        <img class="proj-card-img" src="{{ url_for('static', filename='images/agrofin-1.jpg') }}" alt="Agro Fin">
+        <div class="proj-card-body">
+          <div class="proj-card-tags"><span class="proj-tag">Mobile App</span><span class="proj-tag">Flutter</span><span class="proj-tag">MySQL</span></div>
+          <div class="proj-card-title">Agro Fin</div>
+          <div class="proj-card-role">↳ Full-Stack Developer</div>
+        </div>
+        <span class="proj-card-view">view →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="wrap">
+    <div class="section-head sr">
+      <div>
+        <p class="dim-label">ABOUT</p>
+        <h2 class="section-title">The summary layer</h2>
+      </div>
+    </div>
+    <div class="about-grid">
+      <div class="sr">
+        <p class="about-p">I'm a Front-End Developer and UI/UX Designer who doesn't stop at design. I build it, wire up the backend, and ship it live. My work includes five deployed projects, from an HR system I led as Team Leader to an AI-assisted farming tool I helped ground through research and documentation.</p>
+        <p class="about-p">I'm currently Project Manager at Ireply Back Office Inc. and a BSIT student at University of St. La Salle, and the thing I care about most is staying open to learning. Every project so far has taught me something new, and I plan to keep it that way.</p>
+      </div>
+      <div>
+        <div class="edu-frame frame sr">
+          <p class="edu-label">EDUCATION</p>
+          <div class="edu-item">
+            <p class="edu-school">University of St. La Salle</p>
+            <p class="edu-deg">Bachelor of Science in Information Technology</p>
+            <div class="edu-meta"><span class="edu-period">2022 — 2026</span><span class="edu-note">Tertiary</span></div>
+          </div>
+          <div class="edu-item">
+            <p class="edu-school">University of Saint La Salle — Bacolod</p>
+            <p class="edu-deg">Senior High School, STEM Strand</p>
+            <div class="edu-meta"><span class="edu-period">2020 — 2022</span><span class="edu-note">Academic Achievement</span></div>
+          </div>
+          <div class="edu-item">
+            <p class="edu-school">Don Bosco Technical Institute — Victorias</p>
+            <p class="edu-deg">Junior High School</p>
+            <div class="edu-meta"><span class="edu-period">2016 — 2020</span><span class="edu-note">Secondary</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="section">
+  <div class="wrap">
+    <div class="section-head sr">
+      <div>
+        <p class="dim-label">CAPABILITIES</p>
+        <h2 class="section-title">Tech Stack</h2>
+      </div>
+    </div>
+    <div style="margin-top:8px;">
+      <div class="skill-row sr"><span class="skill-label">Web Development</span><span class="skill-detail">HTML, CSS, JavaScript, PHP, React.js</span></div>
+      <div class="skill-row sr"><span class="skill-label">UI/UX Design</span><span class="skill-detail">Figma, Wireframing, Prototyping</span></div>
+      <div class="skill-row sr"><span class="skill-label">Database Management</span><span class="skill-detail">MySQL, ERD Design</span></div>
+      <div class="skill-row sr"><span class="skill-label">API Integration</span><span class="skill-detail">GPT APIs, REST</span></div>
+      <div class="skill-row sr"><span class="skill-label">Graphic Design</span><span class="skill-detail">Canva, Adobe Photoshop</span></div>
+      <div class="skill-row sr"><span class="skill-label">Hosting & Deployment</span><span class="skill-detail">HelioHost, Vercel, Netlify</span></div>
+      <div class="skill-row sr"><span class="skill-label">System Analysis</span><span class="skill-detail">Flowcharts, Process Mapping, System Design</span></div>
+      <div class="skill-row sr"><span class="skill-label">Written Communication</span><span class="skill-detail">Documentation, reports, correspondence</span></div>
+      <div class="skill-row sr"><span class="skill-label">Team Collaboration</span><span class="skill-detail">Cross-functional project work</span></div>
+      <div class="skill-row sr"><span class="skill-label">Research & Data Gathering</span><span class="skill-detail">Requirements analysis, data entry & organization</span></div>
+      <div class="skill-row sr"><span class="skill-label">Productivity Tools</span><span class="skill-detail">Google Sheets, Microsoft Office, ClickUp, Notion</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="section">
+  <div class="wrap">
+    <div class="section-head sr">
+      <div>
+        <p class="dim-label">TIMELINE</p>
+        <h2 class="section-title">Roles & involvement</h2>
+      </div>
+    </div>
+    <div class="exp-grid">
+      <div>
+        <p class="col-label">LEADERSHIP & WORK</p>
+        <div class="timeline">
+          <div class="timeline-line"></div>
+          <div class="timeline-item sr">
+            <div class="timeline-dot active"></div>
+            <div><p class="tl-period active">Dec 2025 — Present</p><p class="tl-role">Project Manager</p><p class="tl-org">Ireply Back Office Inc.</p></div>
+          </div>
+          <div class="timeline-item sr">
+            <div class="timeline-dot active"></div>
+            <div><p class="tl-period active">Jan 2025 — Present</p><p class="tl-role">4th Year Batch Deputy</p><p class="tl-org">USLS CCS Student Council</p></div>
+          </div>
+          <div class="timeline-item sr">
+            <div class="timeline-dot"></div>
+            <div><p class="tl-period">2024 — 2025</p><p class="tl-role">3rd Year Batch Treasurer</p><p class="tl-org">USLS CCS Student Council</p></div>
+          </div>
+          <div class="timeline-item sr">
+            <div class="timeline-dot"></div>
+            <div><p class="tl-period">2024 — 2025</p><p class="tl-role">Member</p><p class="tl-org">Information Technology Society, USLS</p></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="col-label">SEMINARS & WORKSHOPS</p>
+        <div class="seminar-card has-cert sr" onclick="openCert('devfest', 'GDG DevFest Bacolod 2025')">
+          <p class="seminar-name">GDG DevFest Bacolod 2025</p>
+          <div class="seminar-meta"><span class="seminar-place">University of St. La Salle — Bacolod</span><span class="seminar-date">Nov 2025</span></div>
+          <div class="cert-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>VIEW CERTIFICATE</div>
+        </div>
+        <div class="seminar-card has-cert sr" onclick="openCert('techtrack', 'TechTrack: Mapping Your Future Tech')">
+          <p class="seminar-name">TechTrack: Mapping Your Future Tech</p>
+          <div class="seminar-meta"><span class="seminar-place">University of St. La Salle — Bacolod</span><span class="seminar-date">Nov 2025</span></div>
+          <div class="cert-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>VIEW CERTIFICATE</div>
+        </div>
+        <div class="seminar-card sr"><p class="seminar-name">Cybersecurity for National Security</p><div class="seminar-meta"><span class="seminar-place">University of St. La Salle — Bacolod</span><span class="seminar-date">Aug 2025</span></div></div>
+        <div class="seminar-card sr"><p class="seminar-name">CS Expo 3.0 Pitching Competition</p><div class="seminar-meta"><span class="seminar-place">University of St. La Salle — Bacolod</span><span class="seminar-date">Apr 2025</span></div></div>
+        <div class="seminar-card has-cert sr" onclick="openCert('networking', 'Networking Basics — Cisco Networking Academy')">
+          <p class="seminar-name">Networking Basics</p>
+          <div class="seminar-meta"><span class="seminar-place">Cisco Networking Academy</span><span class="seminar-date">May 2024</span></div>
+          <div class="cert-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>VIEW CERTIFICATE</div>
+        </div>
+        <div class="seminar-card has-cert sr" onclick="openCert('webdesign', 'Web Designing Basics — Simplilearn SkillUp')">
+          <p class="seminar-name">Web Designing Basics</p>
+          <div class="seminar-meta"><span class="seminar-place">Simplilearn SkillUp</span><span class="seminar-date">Mar 2026</span></div>
+          <div class="cert-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>VIEW CERTIFICATE</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="wrap">
+    <div class="contact-btn-row">
+      <button class="btn btn-fill contact-main-toggle" onclick="this.classList.toggle('open'); document.querySelector('.contact-box-wrap').classList.toggle('open')">
+        <span class="toggle-label">Contact Me</span>
+        <span class="toggle-arrow">↓</span>
+      </button>
+      <button class="btn btn-outline ref-toggle" onclick="this.classList.toggle('open'); document.querySelector('.ref-box-wrap').classList.toggle('open')">
+        <span class="toggle-label">Character References</span>
+        <span class="toggle-arrow">↓</span>
+      </button>
+    </div>
+    <div class="contact-box-wrap">
+      <div class="contact-frame frame sr">
+          <div class="bracket tl"></div><div class="bracket tr"></div><div class="bracket bl"></div><div class="bracket br"></div>
+          <p class="dim-label contact-eyebrow">LET'S TALK</p>
+          <h2 class="contact-title">Have a project in mind?</h2>
+          <p class="contact-desc">Motivated IT fresh graduate with skills in web development, databases, and productivity tools. Whether it's building websites, managing systems, or crafting web solutions. I'm detail-oriented, collaborative, and ready to bring value to your team. Fast learner. Ready to make an impact.</p>
+          <div class="contact-ctas">
+            <a href="mailto:j.hofilena.n6@gmail.com" class="btn btn-fill">j.hofilena.n6@gmail.com</a>
+            <a href="tel:+639998672197" class="btn btn-outline">+63 999 867 2197</a>
+            <a href="https://www.linkedin.com/in/joannah-nicole-hofileña-4334473b1" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn ↗</a>
+          </div>
+          <p class="contact-addr">Kadalag-an Village, Victorias City, Negros Occidental, PH</p>
+      </div>
+    </div>
+    <div class="ref-box-wrap">
+      <p class="ref-label">CHARACTER REFERENCES</p>
+      <div class="ref-grid">
+        <div class="ref-card sr">
+          <p class="ref-name">Ma. Celsa Gregoria Paula Pascual</p>
+          <p class="ref-role">IT Faculty Member, College of Computing Studies</p>
+          <p class="ref-org">University of St. La Salle</p>
+          <p class="ref-contact">c.pascual@usls.edu.ph · 4346100 loc 200</p>
+        </div>
+        <div class="ref-card sr">
+          <p class="ref-name">Jona P. Castro</p>
+          <p class="ref-role">Assistant Principal</p>
+          <p class="ref-org">Don Bosco Technical Institute — Victorias</p>
+          <p class="ref-contact">jcastro@dbti-victorias.edu.ph · +63 946 969 0310</p>
+        </div>
+        <div class="ref-card sr">
+          <p class="ref-name">Dave Marcellana</p>
+          <p class="ref-role">Software QA Engineer</p>
+          <p class="ref-org">IReply Back Office Inc.</p>
+          <p class="ref-contact">dmdcade@gmail.com</p>
+        </div>
+        <div class="ref-card sr">
+          <p class="ref-name">Arnel Tabar</p>
+          <p class="ref-role">Technician</p>
+          <p class="ref-org"></p>
+          <p class="ref-contact">+63 946 059 4907</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner" style="justify-content:center;">
+    <span>© 2026 Joannah Nicole Hofileña</span>
+  </div>
+</footer>
+
+<div class="cert-modal-overlay" id="certModal" onclick="if(event.target===this) closeCert()">
+  <div class="cert-modal">
+    <div class="cert-modal-head">
+      <span class="cert-modal-title" id="certModalTitle">CERTIFICATE</span>
+      <button class="cert-modal-close" onclick="closeCert()" aria-label="Close">✕</button>
+    </div>
+    <div class="cert-modal-body">
+      <img id="certModalImg" src="" alt="Certificate" />
+    </div>
+  </div>
+</div>
+<!-- Project Modals -->
+
+    <div class="proj-modal-overlay" id="modal-hris">
+      <div class="proj-modal">
+        <button class="proj-modal-close" onclick="closeModal('hris')" aria-label="Close">✕</button>
+        <div class="proj-carousel">
+        <div class="proj-carousel-track"><div class="proj-carousel-slide"><img src="{{ url_for('static', filename='images/hris.png') }}" alt="HRIS"></div></div>
+        
+        
+      </div>
+      <div class="proj-carousel-dots"><div class="proj-carousel-dot  active"></div></div>
+        <div class="proj-modal-body">
+          <div class="proj-modal-tags"><span class="proj-tag">Web App</span><span class="proj-tag">Full Stack</span><span class="proj-tag">PHP</span></div>
+          <div class="proj-modal-title">HRIS</div>
+          <div class="proj-modal-role">↳ Team Leader · iReply Back Office Inc.</div>
+          <p class="proj-modal-desc">A web-based HR information system handling timekeeping, attendance, team management, and employee records built to replace manual tracking with a single source of truth for an active back-office team.</p>
+          <div class="proj-modal-details">
+            <div class="proj-modal-detail"><div class="proj-modal-detail-label">📍 Problem Solved</div><div class="proj-modal-detail-text">Manual attendance and HR records caused errors, delays, and difficulty in tracking employee data across departments.</div></div>
+            <div class="proj-modal-detail"><div class="proj-modal-detail-label">💡 Solution</div><div class="proj-modal-detail-text">Led the team in building a centralized HRIS that automates timekeeping, attendance logging, and employee record management.</div></div>
+            <div class="proj-modal-detail"><div class="proj-modal-detail-label">📈 Result</div><div class="proj-modal-detail-text">Replaced manual tracking with a reliable digital system, reducing errors and improving HR efficiency for the back-office team.</div></div>
+            <div class="proj-modal-detail"><div class="proj-modal-detail-label">⚡ Key Challenge</div><div class="proj-modal-detail-text">Designing a system flexible enough to handle varied team structures while keeping the interface simple for non-technical staff.</div></div>
+            <div class="proj-modal-detail" style="grid-column:1/-1"><div class="proj-modal-detail-label">🎓 What I Learned</div><div class="proj-modal-detail-text">Strengthened leadership and full-stack development skills, and learned how to balance technical decisions with real user needs.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-modal-overlay" id="modal-farmtracker">
+      <div class="proj-modal">
+        <button class="proj-modal-close" onclick="closeModal('farmtracker')" aria-label="Close">✕</button>
+        <div class="proj-carousel">
+        <div class="proj-carousel-track"><div class="proj-carousel-slide"><img src="{{ url_for('static', filename='images/farmtracker-1.jpg') }}" alt="FarmTracker screenshot 1"></div><div class="proj-carousel-slide"><img src="{{ url_for('static', filename='images/farmtracker-2.jpg') }}" alt="FarmTracker screenshot 2"></div><div class="proj-carousel-slide"><img src="{{ url_for('static', filename='images/farmtracker-3.jpg') }}" alt="FarmTracker screenshot 3"></div><div class="proj-carousel-slide"><img src="{{ url_for('static', filename='images/farmtracker-4.jpg') }}" alt="FarmTracker screenshot 4"></div><div class="proj-carousel-slide"><img src="{{ url_for('static', filename='images/farmtracker-5.jpg') }}" alt="FarmTracker screenshot 5"></div><div class="proj-carousel-slide"><img src="{{ url_for('static', filename='images/farmtracker-6.jpg') }}" alt="FarmTracker screenshot 6"></div><div class="proj-carousel-slide"><img src="{{ url_for('static', filename='images/farmtracker-7.jpg') }}" alt="FarmTracker screenshot 7"></div></div>
+        <button class="proj-carousel-btn proj-carousel-prev" aria-label="Previous">&#8249;</button><button class="proj-carousel-btn proj-carousel-next" aria-label="Next">&#8250;</button>
+        <span class="proj-carousel-count">1 / 7</span>
+      </div>
+      <div class="proj-carousel-dots"><div class="proj-carousel-dot  active"></div><div class="proj-carousel-dot"></div><div class="proj-carousel-dot"></div><div class="proj-carousel-dot"></div><div class="proj-carousel-dot"></div><div class="proj-carousel-dot"></div><div class="proj-carousel-dot"></div></div>
+        <div class="proj-modal-body">
+          <div class="proj-modal-tags"><span class="proj-tag">Mobile App</span><span class="proj-tag">Flutter</span><span class="proj-tag">AI</span></div>
+          <div class="proj-modal-title">FarmTracker</div>
+          <div class="proj-modal-role">↳ Research & Documentation · AI-Based Scheduler for Farming</div>
+          <p class="proj-modal-desc">A dual-platform system pairing a Flutter mobile app for farmers with a React.js/PHP web dashboard for administrators. GPT APIs drive automated task scheduling and AI-powered crop analysis, while a QR code system digitizes harvest and inventory tracking.</p>
+          <div class="proj-modal-details">
+            <div class="proj-modal-detail"><div class="proj-modal-detail-label">📍 Problem Solved</div><div class="proj-modal-detail-text">Farmers lack structured tools for scheduling tasks, tracking harvests, and managing crop health — leading to disorganized workflows and crop losses.</div></div>
+            <div class="proj-modal-detail"><div class="proj-modal-detail-label">💡 Solution</div><div class="proj-modal-detail-text">Contributed to research and documentation for an AI-powered scheduling app that guides farmers step-by-step through crop cycles with automated reminders.</div></div>
+            <div class="proj-modal-detail"><div class="proj-modal-detail-label">📈 Result</div><div class="proj-modal-detail-text">Produced a working mobile platform that helps farmers follow structured planting schedules and track field activities digitally.</div></div>
+            <div class="proj-modal-detail"><div class="proj-modal-detail-label">⚡ Key Challenge</div><div class="proj-modal-detail-text">Translating complex farming processes into simple, step-by-step app flows that farmers with limited tech experience could follow.</div></div>
+            <div class="proj-modal-detail" style="grid-column:1/-1"><div class="proj-modal-detail-label">🎓 What I Learned</div><div class="proj-modal-detail-text">Deepened understanding of AI integration in mobile apps and the importance of user-centered design in agricultural technology.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-modal-overlay" id="modal-coastal">
+      <div class="proj-modal">
+        <button class="proj-modal-close" onclick="closeModal('coastal')" aria-label="Close">✕</button>
+        <div class="proj-carousel">
+        <div class="proj-carousel-track"><div class="proj-carousel-slide"><img src="{{ url_for('static', filename='images/coastal-care.png') }}" alt="Coastal Care"></div></div>
+        
+        
+      </div>
+      <div class="proj-carousel-dots"><div class="proj-carousel-dot  active"></div></div>
+        <div class="proj-modal-body">
+          <div class="proj-modal-tags"><span class="proj-tag">Web App</span><span class="proj-tag">Frontend</span><span class="proj-tag">PHP</span></div>
+          <div class="proj-modal-title">Coastal Care</div>
+          <div class="proj-modal-role">↳ Full-Stack Developer · Barangay 6-A Eco-Trail, Victorias City — 2022</div>
+          <a href="https://coastal-care.vercel.app" target="_blank" rel="noopener" class="pc-link" style="margin:0 0 14px;">Visit live site ↗</a>
+          <p class="proj-modal-desc">A web app for the mangrove island eco-trail in Barangay 6-A, Victorias City, built to support cottage reservations, share barangay news, and educate visitors with fun mangrove facts.</p>
+          <div class="proj-modal-details">
+            <div class="proj-modal-detail"><div class="proj-modal-detail-label">📍 Problem Solved</div><div class="proj-modal-detail-text">The eco-trail had no digital presence, making it hard for visitors to learn about the site, get updates, or reserve cottages in advance.</div></div>
+            <div class="proj-modal-detail"><div class="proj-modal-detail-label">💡 Solution</div><div class="proj-modal-detail-text">Designed and built a full web platform with a reservation system, news section, and interactive fun-facts feature for the barangay.</div></div>
+            <div class="proj-modal-detail"><div class="proj-modal-detail-label">📈 Result</div><div class="proj-modal-detail-text">Delivered a live site that gives the eco-trail an online presence and enables cottage bookings without needing to visit in person.</div></div>
+            <div class="proj-modal-detail"><div class="proj-modal-detail-label">⚡ Key Challenge</div><div class="proj-modal-detail-text">Building a functional reservation flow for a community site with minimal budget and infrastructure constraints.</div></div>
+            <div class="proj-modal-detail" style="grid-column:1/-1"><div class="proj-modal-detail-label">🎓 What I Learned</div><div class="proj-modal-detail-text">Gained hands-on experience building real-world web tools for local government and community organizations.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-modal-overlay" id="modal-usls">
+      <div class="proj-modal">
+        <button class="proj-modal-close" onclick="closeModal('usls')" aria-label="Close">✕</button>
+        <div class="proj-carousel">
+        <div class="proj-carousel-track"><div class="proj-carousel-slide"><img src="{{ url_for('static', filename='images/usls-bookstore.png') }}" alt="USLS Bookstore"></div></div>
+        
+        
+      </div>
+      <div class="proj-carousel-dots"><div class="proj-carousel-dot  active"></div></div>
+        <div class="proj-modal-body">
+          <div class="proj-modal-tags"><span class="proj-tag">Web App</span><span class="proj-tag">Full Stack</span><span class="proj-tag">MySQL</span></div>
+          <div class="proj-modal-title">USLS Bookstore</div>
+          <div class="proj-modal-role">↳ Full-Stack Developer · University of St. La Salle — 2023</div>
+          <a href="https://uslsbookstore.netlify.app" target="_blank" rel="noopener" class="pc-link" style="margin:0 0 14px;">Visit live site ↗</a>
+          <p class="proj-modal-desc">A web-based ordering and inventory system for the university bookstore, handling catalog browsing, cart management, checkout, and stock tracking for textbooks, supplies, uniforms, and merchandise.</p>
+          <div class="proj-modal-details">
+            <div class="proj-modal-detail"><div class="proj-modal-detail-label">📍 Problem Solved</div><div class="proj-modal-detail-text">The university bookstore relied on manual order processing, causing long queues and stock tracking issues especially during enrollment season.</div></div>
+            <div class="proj-modal-detail"><div class="proj-modal-detail-label">💡 Solution</div><div class="proj-modal-detail-text">Built a full e-commerce system with product catalog, cart, checkout flow, and inventory management tailored for a university bookstore.</div></div>
+            <div class="proj-modal-detail"><div class="proj-modal-detail-label">📈 Result</div><div class="proj-modal-detail-text">Created a working online ordering platform that lets students browse and order items without going to the physical store.</div></div>
+            <div class="proj-modal-detail"><div class="proj-modal-detail-label">⚡ Key Challenge</div><div class="proj-modal-detail-text">Handling multiple product categories and stock levels while keeping the interface clean and easy to use for students.</div></div>
+            <div class="proj-modal-detail" style="grid-column:1/-1"><div class="proj-modal-detail-label">🎓 What I Learned</div><div class="proj-modal-detail-text">Improved full-stack skills and learned how to scope and deliver a complete e-commerce system within an academic project timeline.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-modal-overlay" id="modal-agrofin">
+      <div class="proj-modal">
+        <button class="proj-modal-close" onclick="closeModal('agrofin')" aria-label="Close">✕</button>
+        <div class="proj-carousel">
+        <div class="proj-carousel-track"><div class="proj-carousel-slide"><img src="{{ url_for('static', filename='images/agrofin-1.jpg') }}" alt="Agro Fin screenshot 1"></div><div class="proj-carousel-slide"><img src="{{ url_for('static', filename='images/agrofin-2.jpg') }}" alt="Agro Fin screenshot 2"></div><div class="proj-carousel-slide"><img src="{{ url_for('static', filename='images/agrofin-3.jpg') }}" alt="Agro Fin screenshot 3"></div></div>
+        <button class="proj-carousel-btn proj-carousel-prev" aria-label="Previous">&#8249;</button><button class="proj-carousel-btn proj-carousel-next" aria-label="Next">&#8250;</button>
+        <span class="proj-carousel-count">1 / 3</span>
+      </div>
+      <div class="proj-carousel-dots"><div class="proj-carousel-dot  active"></div><div class="proj-carousel-dot"></div><div class="proj-carousel-dot"></div></div>
+        <div class="proj-modal-body">
+          <div class="proj-modal-tags"><span class="proj-tag">Mobile App</span><span class="proj-tag">Flutter</span><span class="proj-tag">MySQL</span></div>
+          <div class="proj-modal-title">Agro Fin</div>
+          <div class="proj-modal-role">↳ Full-Stack Developer · Agricultural Budgeting Tool — 2024</div>
+          <p class="proj-modal-desc">A mobile app that helps farmers plan and track their agricultural budgets, built to give small-scale farmers a simple digital tool for managing income, expenses, and reports.</p>
+          <div class="proj-modal-details">
+            <div class="proj-modal-detail"><div class="proj-modal-detail-label">📍 Problem Solved</div><div class="proj-modal-detail-text">Small-scale farmers have no structured way to track farm income and expenses, making it hard to plan budgets or assess profitability.</div></div>
+            <div class="proj-modal-detail"><div class="proj-modal-detail-label">💡 Solution</div><div class="proj-modal-detail-text">Developed a mobile budgeting app with income and expense tracking, report generation, and a simple profile management system.</div></div>
+            <div class="proj-modal-detail"><div class="proj-modal-detail-label">📈 Result</div><div class="proj-modal-detail-text">Produced a working Flutter app that gives farmers a clear view of their farm finances in a format they can use on their phones.</div></div>
+            <div class="proj-modal-detail"><div class="proj-modal-detail-label">⚡ Key Challenge</div><div class="proj-modal-detail-text">Designing a financial tool simple enough for farmers unfamiliar with budgeting apps while still being functional and useful.</div></div>
+            <div class="proj-modal-detail" style="grid-column:1/-1"><div class="proj-modal-detail-label">🎓 What I Learned</div><div class="proj-modal-detail-text">Built confidence in mobile development with Flutter and learned how to design finance tools for non-technical end users.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
