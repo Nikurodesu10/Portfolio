@@ -196,7 +196,7 @@ function initCarousel(modalId) {
   });
   items.forEach(function(it, i){
     it.addEventListener('click', function(){
-      if(moved > 6) return;
+      if(moved > 12) return;
       if(i === frontIndex()){
         var img = it.querySelector('img');
         openPhoto(img.src, it.getAttribute('data-caption'));
