@@ -519,7 +519,7 @@
             mask-image:linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);}
   .g3d-ring{--r:400px; position:relative; width:230px; height:310px; transform-style:preserve-3d; will-change:transform; pointer-events:none;}
   .g3d-item{pointer-events:none;}
-  .g3d-stage{cursor:zoom-in;}
+  .g3d-stage{cursor:grab;}
   .g3d.dragging .g3d-stage{cursor:grabbing;}
   .g3d-item{position:absolute; inset:0; margin:0; border:1px solid var(--line-soft); border-radius:10px; overflow:hidden; background:var(--ink-2);
     backface-visibility:hidden; transition:border-color .3s ease, box-shadow .3s ease;}
@@ -536,3 +536,6 @@
     .g3d-stage{height:330px; perspective:600px;}
     .g3d-ring{width:160px; height:220px;}
   }
+
+  .g3d-view-row{display:flex; justify-content:center; margin-top:16px;}
+  .g3d-view{font-size:12px; padding:11px 22px;}

@@ -177,9 +177,7 @@ function initCarousel(modalId) {
   }
   function go(dir){ idle = 0; vel = 0; target = Math.round(angle / step) * step - dir * step; }
 
-  // Clicks are resolved by position on the stage, not by 3D hit-testing
-  // (which some browsers/GPUs get wrong): middle = open the front photo,
-  // left/right = turn that way.
+  // Photos open only through the View button (or Enter); dragging spins.
   var stage = root.querySelector('.g3d-stage');
   var pressed = false;
   function openFront(){
@@ -203,13 +201,7 @@ function initCarousel(modalId) {
     if(!dragging) return;
     dragging = false; root.classList.remove('dragging');
     vel = Math.max(-12, Math.min(12, vel)); snap();
-    if(cancelled || !pressed || moved > 12) { pressed = false; return; }
     pressed = false;
-    var r = stage.getBoundingClientRect();
-    var half = (items[0].offsetWidth / 2) + 16;
-    var off = e.clientX - (r.left + r.width / 2);
-    if(Math.abs(off) <= half){ vel = 0; target = Math.round(angle / step) * step; openFront(); }
-    else { go(off > 0 ? 1 : -1); }
   }
   window.addEventListener('pointerup', function(e){ release(e, false); });
   window.addEventListener('pointercancel', function(e){ release(e, true); });
