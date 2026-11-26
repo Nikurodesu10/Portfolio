@@ -252,7 +252,7 @@
   .cert-modal-overlay.open{display:flex;}
   .cert-modal-overlay.show{opacity:1;}
   .cert-modal{
-    position:relative; max-width:min(880px, 100%); max-height:88vh; width:fit-content; min-width:min(320px, 100%);
+    position:relative; max-width:880px; max-height:88vh; width:100%;
     background:var(--ink-2); border:1px solid var(--line-soft);
     transform:scale(0.96) translateY(10px); transition:transform .25s cubic-bezier(.2,.8,.2,1);
     display:flex; flex-direction:column; overflow:hidden;
@@ -271,7 +271,7 @@
   }
   .cert-modal-close:hover{border-color:var(--signal); color:var(--signal);}
   .cert-modal-body{overflow:hidden; padding:18px; display:flex; align-items:center; justify-content:center;}
-  .cert-modal-body img{max-width:min(842px, calc(100vw - 86px)); max-height:calc(88vh - 96px); width:auto; height:auto; object-fit:contain; display:block; border:1px solid var(--line-soft);}
+  .cert-modal-body img{max-width:100%; max-height:calc(88vh - 96px); width:auto; height:auto; object-fit:contain; display:block; border:1px solid var(--line-soft);}
   .seminar-name{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14px; color:var(--paper);}
   .seminar-meta{display:flex; justify-content:space-between; margin-top:8px; gap:10px; flex-wrap:wrap;}
   .seminar-place{font-size:12px; color:rgba(244,242,236,0.55);}
