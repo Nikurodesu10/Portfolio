@@ -518,7 +518,9 @@
     -webkit-mask-image:linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
             mask-image:linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);}
   .g3d-ring{--r:400px; position:relative; width:230px; height:310px; transform-style:preserve-3d; will-change:transform; pointer-events:none;}
-  .g3d-item{pointer-events:auto;}
+  .g3d-item{pointer-events:none;}
+  .g3d-stage{cursor:zoom-in;}
+  .g3d.dragging .g3d-stage{cursor:grabbing;}
   .g3d-item{position:absolute; inset:0; margin:0; border:1px solid var(--line-soft); border-radius:10px; overflow:hidden; background:var(--ink-2);
     backface-visibility:hidden; transition:border-color .3s ease, box-shadow .3s ease;}
   .g3d-item img{width:100%; height:100%; object-fit:cover; object-position:center top; display:block; pointer-events:none;}
@@ -527,6 +529,8 @@
   .g3d-btn{width:38px; height:38px; border-radius:50%; border:1px solid var(--line-soft); background:transparent; color:var(--paper); font-size:20px; line-height:1; cursor:pointer; transition:border-color .2s, color .2s; flex-shrink:0;}
   .g3d-btn:hover{border-color:var(--signal); color:var(--signal);}
   .g3d-caption{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.04em; color:var(--sage); text-align:center; min-width:0; flex:0 1 360px;}
+  .g3d-view{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.04em; padding:9px 14px; border:1px solid var(--signal); background:transparent; color:var(--signal); border-radius:20px; cursor:pointer; flex-shrink:0; transition:background .2s, color .2s;}
+  .g3d-view:hover{background:var(--signal); color:var(--ink);}
   .g3d:focus-visible .g3d-stage{outline:1px dashed var(--signal); outline-offset:-1px;}
   @media(max-width:600px){
     .g3d-stage{height:330px; perspective:600px;}

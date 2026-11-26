@@ -177,8 +177,18 @@ function initCarousel(modalId) {
   }
   function go(dir){ idle = 0; vel = 0; target = Math.round(angle / step) * step - dir * step; }
 
-  root.addEventListener('pointerdown', function(e){
-    dragging = true; moved = 0; vel = 0; idle = 0; lastX = e.clientX; lastT = performance.now();
+  // Clicks are resolved by position on the stage, not by 3D hit-testing
+  // (which some browsers/GPUs get wrong): middle = open the front photo,
+  // left/right = turn that way.
+  var stage = root.querySelector('.g3d-stage');
+  var pressed = false;
+  function openFront(){
+    var it = items[frontIndex()];
+    openPhoto(it.querySelector('img').src, it.getAttribute('data-caption'));
+  }
+  stage.addEventListener('pointerdown', function(e){
+    if(e.button !== undefined && e.button !== 0) return;
+    pressed = dragging = true; moved = 0; vel = 0; idle = 0; lastX = e.clientX; lastT = performance.now();
     root.classList.add('dragging');
   });
   window.addEventListener('pointermove', function(e){
@@ -189,30 +199,28 @@ function initCarousel(modalId) {
     vel = dx * 0.25 * (16 / Math.max(1, now - lastT));
     lastX = e.clientX; lastT = now;
   });
-  window.addEventListener('pointerup', function(){
+  function release(e, cancelled){
     if(!dragging) return;
     dragging = false; root.classList.remove('dragging');
     vel = Math.max(-12, Math.min(12, vel)); snap();
-  });
-  items.forEach(function(it, i){
-    it.addEventListener('click', function(){
-      if(moved > 12) return;
-      if(i === frontIndex()){
-        var img = it.querySelector('img');
-        openPhoto(img.src, it.getAttribute('data-caption'));
-      } else {
-        var cur = Math.round(angle / step);
-        var delta = ((-i - cur) % n + n) % n; if(delta > n / 2) delta -= n;
-        vel = 0; idle = 0; target = (cur + delta) * step;
-      }
-    });
-  });
+    if(cancelled || !pressed || moved > 12) { pressed = false; return; }
+    pressed = false;
+    var r = stage.getBoundingClientRect();
+    var half = (items[0].offsetWidth / 2) + 16;
+    var off = e.clientX - (r.left + r.width / 2);
+    if(Math.abs(off) <= half){ vel = 0; target = Math.round(angle / step) * step; openFront(); }
+    else { go(off > 0 ? 1 : -1); }
+  }
+  window.addEventListener('pointerup', function(e){ release(e, false); });
+  window.addEventListener('pointercancel', function(e){ release(e, true); });
+  document.getElementById('g3dView').addEventListener('click', openFront);
   document.getElementById('g3dPrev').addEventListener('click', function(){ go(-1); });
   document.getElementById('g3dNext').addEventListener('click', function(){ go(1); });
   root.tabIndex = 0;
   root.addEventListener('keydown', function(e){
     if(e.key === 'ArrowLeft'){ go(-1); e.preventDefault(); }
     if(e.key === 'ArrowRight'){ go(1); e.preventDefault(); }
+    if(e.key === 'Enter'){ openFront(); e.preventDefault(); }
   });
   window.addEventListener('resize', layout);
   layout(); render(); requestAnimationFrame(tick);
